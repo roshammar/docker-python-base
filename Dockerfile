@@ -1,5 +1,8 @@
 FROM python:3.7-stretch
 
+RUN groupadd -g 1000 docker && \
+    useradd -r -u 1000 -g docker docker
+
 RUN set -ex \
      && pip install --upgrade pip \
      && pip install --no-cache cython \
@@ -39,4 +42,5 @@ RUN set -ex \
 
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
 
+USER docker
 CMD /bin/bash
