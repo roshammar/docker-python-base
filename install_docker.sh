@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sudo apt-get update
+sudo apt update
 
-sudo apt-get install \
+sudo apt install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -15,8 +15,8 @@ sudo add-apt-repository \
     $(lsb_release -cs) \
     stable"
 
-sudo apt-get update
+sudo apt update
 
-sudo apt-get install docker-ce
+sudo apt --yes install docker-ce
 
-echo "Run sudo usermod -aG docker your-user"
+echo "Run sudo usermod -aG docker <your-user>"
